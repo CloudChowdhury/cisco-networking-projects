@@ -1,0 +1,30 @@
+##vlan 10 name SALES
+##vlan 30 name HR
+##vlan 40 name SERVICE
+
+!---- Access ports ----
+interface range f0/1-2
+ switchport mode access
+ switchport access vlan 10
+
+interface range f0/3
+ switchport mode access
+ switchport access vlan 30
+
+interface range f0/4-5
+ switchport mode access
+ switchport access vlan 40
+
+!---- Access ports ----
+interface g0/1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport trunk native vlan 1001
+ switchport trunk allowed vlan 20
+
+!---- Trunk to Router (ROAS) ----
+interface g0/2
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ switchport trunk native vlan 1001
+ switchport trunk allowed vlan 10,20,30,40

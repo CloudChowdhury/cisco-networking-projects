@@ -1,0 +1,67 @@
+# VLAN & Subnet Plan
+
+## Base Network
+- Given Network: 192.168.1.0/24  
+- Requirement: Divided into 4 equal subnets for VLANs  
+- Subnet Mask Calculation:  
+  - /24 → 255.255.255.0 (256 addresses)  
+  - Needed 4 subnets → borrow 2 bits → /26 mask = 255.255.255.192  
+  - Each /26 = 64 addresses (62 usable hosts + 1 network + 1 broadcast)  
+
+
+## Subnet Allocation
+
+### VLAN 10 – Sales (SW1)
+- Subnet: 192.168.1.0/26  
+- Subnet Mask: 255.255.255.192 (/26)  
+- Network Address: 192.168.1.0  
+- First Usable Host: 192.168.1.1  
+- Last Usable Host: 192.168.1.62  
+- Broadcast:** 192.168.1.63  
+- Default Gateway (R1 Subinterface): 192.168.1.1  
+
+
+### VLAN 20 – Engineering (SW1)
+- Subnet: 192.168.1.64/26  
+- Subnet Mask: 255.255.255.192 (/26)  
+- Network Address: 192.168.1.64  
+- First Usable Host: 192.168.1.65  
+- Last Usable Host: 192.168.1.126  
+- Broadcast: 192.168.1.127  
+- Default Gateway (R1 Subinterface): 192.168.1.65  
+
+
+### VLAN 30 – HR (SW2)
+- Subnet: 192.168.1.128/26  
+- Subnet Mask: 255.255.255.192 (/26)  
+- Network Address: 192.168.1.128  
+- First Usable Host: 192.168.1.129  
+- Last Usable Host: 192.168.1.190  
+- Broadcast: 192.168.1.191  
+- Default Gateway (R1 Subinterface): 192.168.1.129  
+
+
+### VLAN 40 – Service (SW2)
+- Subnet: 192.168.1.192/26  
+- Subnet Mask: 255.255.255.192 (/26)  
+- Network Address: 192.168.1.192  
+- First Usable Host: 192.168.1.193  
+- Last Usable Host: 192.168.1.254  
+- Broadcast: 192.168.1.255  
+- Default Gateway (R1 Subinterface): 192.168.1.193  
+
+---
+
+## Summary Table
+
+| VLAN | Department  | Subnet            | Mask              | Network | First Host | Last Host | Broadcast | Gateway |
+|------|-------------|-------------------|------------------|---------|------------|-----------|-----------|---------|
+| 10   | Sales       | 192.168.1.0/26    | 255.255.255.192  | .0      | .1         | .62       | .63       | .1      |
+| 20   | Engineering | 192.168.1.64/26   | 255.255.255.192  | .64     | .65        | .126      | .127      | .65     |
+| 30   | HR          | 192.168.1.128/26  | 255.255.255.192  | .128    | .129       | .190      | .191      | .129    |
+| 40   | Service     | 192.168.1.192/26  | 255.255.255.192  | .192    | .193       | .254      | .255      | .193    |
+
+---
+
+📌 *This shows how the single 192.168.1.0/24 network was divided into four equal subnets using /26 mask, each mapped to a VLAN. The gateway addresses are configured on router subinterfaces (ROAS).*
+
