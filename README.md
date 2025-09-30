@@ -12,7 +12,7 @@ I designed a small enterprise-style network and implemented:
 
 ## Topology
 <p align="center">
-  <img src="topology.jpeg.png" alt="Network topology diagram" width="700">
+  <img src="topology.jpeg.png" alt="Network topology diagram" width="800">
 </p>
 
 <p align="center"><i>Uploaded from my laptop so reviewers can see the design immediately.</i></p>
