@@ -11,7 +11,7 @@ I designed a small enterprise-style network and implemented:
 ---
 
 ## Topology
-![Network topology](topology.jpeg)
+![Network topology](topology.jpeg.png)
 
 *(Uploaded from my laptop and included here so reviewers can see the design immediately.)*
 
