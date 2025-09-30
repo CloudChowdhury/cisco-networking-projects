@@ -11,9 +11,11 @@ I designed a small enterprise-style network and implemented:
 ---
 
 ## Topology
-![Network topology](<img src="topology.jpeg.png" alt="Network topology" width="500">)
+<p align="center">
+  <img src="topology.jpeg.png" alt="Network topology diagram" width="600">
+</p>
 
-*(Uploaded from my laptop and included here so reviewers can see the design immediately.)*
+<p align="center"><i>Uploaded from my laptop so reviewers can see the design immediately.</i></p>
 
 ---
 
